@@ -1,14 +1,25 @@
 package hello
 
 import (
-    "fmt"
-    "net/http"
+	"fmt"
+	"net/http"
+	"io/ioutil"
 )
 
 func init() {
-    http.HandleFunc("/", handler)
+	http.HandleFunc("/", handler)
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprint(w, "Hello, world!")
+	var myval string
+	myval = funkyConnection()
+	fmt.Fprint(w, myval)
+}
+
+func funkyConnection() string {
+	resp, _ := http.Get("http://google.com")
+	bodyBytes, _ := ioutil.ReadAll(resp.Body)
+	return string(bodyBytes)
+	//bodyBytes = string("Was test")
+	//return bodyBytes
 }
