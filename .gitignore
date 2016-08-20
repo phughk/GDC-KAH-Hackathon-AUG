@@ -1,2 +1,12 @@
 **/*.swp
 data/sentences.csv
+/.idea/
+.idea/GDC-KAH-Hackathon-AUG.iml
+.idea/compiler.xml
+.idea/copyright/
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+parse/sentences_with_feelings.csv
