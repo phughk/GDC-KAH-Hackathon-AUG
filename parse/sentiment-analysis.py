@@ -2,6 +2,7 @@ import argparse
 from googleapiclient import discovery
 import httplib2
 import json
+import uuid
 from oauth2client.client import GoogleCredentials
 import csv
 from optparse import OptionParser
@@ -23,15 +24,20 @@ def main(filename):
                             http=http, discoveryServiceUrl=DISCOVERY_URL)
   filepath = filename
   f = open(filepath, 'r')
+  writeFile = open("sentences_with_feelings.csv", 'a')
   data = csv.reader(f, delimiter='\t')
-  count = 10
+  writeTo = csv.writer(writeFile, delimiter=',')
+  # writeTo.writerow(["text", "polarity", "magnitude"])
+  count = 0
+  skipTill = 10000
   for row in data:
-    if count == 0:
+    if count == 15000:
       break
     if row[1] != "eng":
       continue
-    print row[2]
-    count = count - 1
+    count = count + 1
+    if count < skipTill:
+      continue
     service_request = service.documents().analyzeSentiment(
       body={
         'document': {
@@ -39,11 +45,12 @@ def main(filename):
            'content': row[2],
         }
       })
-
     response = service_request.execute()
     polarity = response['documentSentiment']['polarity']
     magnitude = response['documentSentiment']['magnitude']
-    print polarity, magnitude
+    rowToWrite = [row[2], polarity, magnitude]
+    writeTo.writerow(rowToWrite)
+    print rowToWrite
   return 0
 
 if __name__ == '__main__':
