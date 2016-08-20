@@ -20,6 +20,6 @@ func funkyConnection() string {
 	resp, _ := http.Get("http://google.com")
 	bodyBytes, _ := ioutil.ReadAll(resp.Body)
 	return string(bodyBytes)
-	//bodyBytes = string("Was test")
-	//return bodyBytes
 }
+
+func findMood()
