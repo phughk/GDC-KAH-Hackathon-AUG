@@ -1,6 +1,6 @@
-import counter from './counter'
+import sentences from './sentences'
 
 export default {
-  counter
+  sentences
 }
 

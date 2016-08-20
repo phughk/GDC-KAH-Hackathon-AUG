@@ -1,0 +1,27 @@
+[{
+  "id": "one_id",
+  "sentence": "the_sentence",
+  "type": "matching",
+  "mood": {
+    "polarity": 1,
+    "magnitude": 8
+  }
+},
+{
+  "id": "two_id",
+  "sentence": "the_sentence",
+  "type": "oppposite",
+  "mood": {
+    "polarity": 1,
+    "magnitude": 8
+  }
+},
+{
+  "id": "third_id",
+  "type": "asked",
+  "sentence": "the_sentence",
+  "mood": {
+    "polarity": 1,
+    "magnitude": 8
+  }
+}]

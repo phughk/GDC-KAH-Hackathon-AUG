@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { LookRoot, Presets } from 'react-look'
+
 import { Provider, combineReducers } from 'fluorine-lib'
 import {
   IndexRoute,
@@ -10,7 +12,7 @@ import {
 import dispatcher from './dispatcher'
 import reducers from './reducers/index'
 import Root from './containers/root'
-import Counter from './components/counter'
+import Home from './components/home'
 
 export default class App extends Component {
   render() {
@@ -18,11 +20,13 @@ export default class App extends Component {
       <Provider
         dispatcher={dispatcher}
         observable={({ reduce }) => combineReducers(reducers)(reduce)}>
-        <Router history={browserHistory}>
-          <Route path='/' component={Root}>
-            <IndexRoute component={Counter}/>
-          </Route>
-        </Router>
+        <LookRoot config={Presets['react-dom']}>
+          <Router history={browserHistory}>
+            <Route path='/' component={Root}>
+              <IndexRoute component={Home}/>
+            </Route>
+          </Router>
+        </LookRoot>
       </Provider>
     )
   }
