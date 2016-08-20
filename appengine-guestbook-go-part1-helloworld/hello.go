@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net/http"
 	"io/ioutil"
+	_ "database/sql"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func init() {
@@ -22,4 +24,6 @@ func funkyConnection() string {
 	return string(bodyBytes)
 }
 
-func findMood()
+func findMood() {
+
+}
