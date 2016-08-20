@@ -1,0 +1,49 @@
+{
+  "name": "react-fluorine-boilerplate",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Boilerplate for a webapp built on React and Fluorine",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "clean": "rm -rf www",
+    "copy": "mkdir -p www && cp -R ./assets/* www/",
+    "prestart": "npm run clean && npm run copy",
+    "start": "NODE_ENV=development node server.js",
+    "prebuild": "npm run clean && npm run copy",
+    "build": "NODE_ENV=production webpack --config webpack.config.js"
+  },
+  "author": "Phil Plückthun <phil@plckthn.me> (https://github.com/philpl)",
+  "bugs": {
+    "url": "https://github.com/philpl/react-fluorine-boilerplate/issues"
+  },
+  "license": "CC0-1.0",
+  "dependencies": {
+    "@reactivex/rxjs": "^5.0.0-beta.10",
+    "fluorine-lib": "^4.0.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-router": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-philpl": "^0.1.0",
+    "dotenv": "^2.0.0",
+    "eslint": "^3.0.1",
+    "eslint-config-excellence": "^1.12.1",
+    "eslint-loader": "^1.4.1",
+    "eslint-plugin-react": "^5.1.1",
+    "raw-loader": "^0.5.1",
+    "react-hot-loader": "^3.0.0-beta.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.1.0-beta.17",
+    "webpack-dev-server": "^2.1.0-beta.0"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
+  }
+}
